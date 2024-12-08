@@ -1,3 +1,9 @@
+:root {
+    --light-gray: rgb(240, 240, 240);
+    --gray: rgb(215, 215, 215);
+    --dark-gray: rgb(190, 190, 190);
+}
+
 button {
     border: none;
     background: none;
@@ -18,7 +24,7 @@ body {
     gap: 0.5rem;
     width: fit-content;
     height: 100%;
-    background-color: rgb(243, 243, 243);
+    background-color: var(--light-gray);
     padding: 1rem;
 }
 
@@ -26,21 +32,37 @@ body {
 #lists {
     height: 100%;
     overflow:auto;
-    scrollbar-color: rgb(168, 216, 196) rgb(243, 243, 243);
+    scrollbar-color: rgb(168, 216, 196) var(--light-gray);
     scrollbar-width: thin;
     padding-right: 0.5rem;
 }
 
-#add-button {
+#add-btn {
+    position: relative;
     width: 100%;
 }
 
-#add-button > button {
+#add-btn > button {
     display: flex;
     justify-content: center;
     padding: 0.3rem;
 }
 
-#add-button > button svg {
-    stroke: rgb(50, 50, 50);
+#add-btn > div {
+    position: absolute;
+    bottom: 36px;
+    left: 36px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    background-color: var(--gray);
+}
+
+#add-btn > div button {
+    text-align: left;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+}
+
+#add-btn > div button:hover {
+    background-color: var(--dark-gray);
 }
