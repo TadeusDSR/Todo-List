@@ -30,7 +30,7 @@ body {
 }
 
 
-#lists {
+#projects {
     height: 100%;
     overflow:auto;
     scrollbar-color: rgb(168, 216, 196) var(--light-gray);

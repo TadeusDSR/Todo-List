@@ -1,10 +1,20 @@
 import "./styles.css";
+import Project from "./project.js"
 
 const addBtn = document.getElementById("add-btn");
 const addMenu = document.getElementById("add-menu");
 const addProjectBtn = document.getElementById("add-project-btn");
 const addTaskBtn = document.getElementById("add-task-btn");
 const formContainer = document.getElementById("form-container");
+const projectsList = document.getElementById("projects");
+
+function updateProjectsList(array) {
+  for (let project of array) {
+    const para = document.createElement("p");
+    para.textContent = project.name;
+    projectsList.appendChild(para);
+  }
+}
 
 let isActive = 0;
 
