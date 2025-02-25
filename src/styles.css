@@ -136,7 +136,21 @@ form > div:last-child {
     background-color: rgb(176, 218, 195);
 }
 
+h3 {
+    cursor: pointer;
+}
+
 #tasks {
     width: 100%; 
     padding: 3rem;
+}
+
+#tasks > div  {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.task-date {
+    margin: 0;
+    font-size: small;
 }
