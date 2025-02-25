@@ -135,3 +135,8 @@ form > div:last-child {
 #submit-btn:active {
     background-color: rgb(176, 218, 195);
 }
+
+#tasks {
+    width: 100%; 
+    padding: 3rem;
+}

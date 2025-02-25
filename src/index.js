@@ -99,6 +99,11 @@ addTaskBtn.addEventListener("click", () => {
         </select>
       </div>
     </div>
+    <div>
+      <label for="project-name">Add to which project</label>
+        <select name="project-name" id="project-name">
+        </select>
+    </div>
 
     <div>
       <button id="submit-btn" type="button">
@@ -107,4 +112,24 @@ addTaskBtn.addEventListener("click", () => {
     </div>
 
   </form>`;
+
+  const submitBtn = document.getElementById("submit-btn");
+  const title = document.getElementById("title");
+  const desc = document.getElementById("desc");
+  const dueDate = document.getElementById("due-date");
+  const priority = document.getElementById("priority");
+  const projectName = document.getElementById("project-name");
+
+  for (let project of projects) {
+    projectName.innerHTML += `<option value="${project}">${project.name}</option>`;
+  }
+
+  submitBtn.addEventListener("click", () => {
+    if (title.value && desc.value && dueDate.value && priority.value) {
+      projects[projectName.options.selectedIndex].newTask(title.value, desc.value, dueDate.value, priority.value);
+      updateTaskList(projects, projectName.options.selectedIndex);
+      formContainer.style.display = "none";
+      formContainer.innerHTML = ``;
+    }
+  });
 });
