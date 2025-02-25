@@ -13,10 +13,13 @@ let projects = [];
 
 function updateProjectsList(array) {
   projectsList.innerHTML = ``;
-  for (let project of array) {
-    const para = document.createElement("p");
-    para.textContent = project.name;
-    projectsList.appendChild(para);
+  for (let i = 0; i < array.length; i++) {
+    const h3 = document.createElement("h3");
+    h3.textContent = array[i].name;
+    projectsList.appendChild(h3);
+    h3.addEventListener("click", () => {
+      updateTaskList(projects, i);
+    });
   }
 }
 
