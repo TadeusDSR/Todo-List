@@ -8,6 +8,8 @@ const addTaskBtn = document.getElementById("add-task-btn");
 const formContainer = document.getElementById("form-container");
 const projectsList = document.getElementById("projects");
 
+let projects = [];
+
 function updateProjectsList(array) {
   projectsList.innerHTML = ``;
   for (let project of array) {
@@ -46,6 +48,18 @@ addProjectBtn.addEventListener("click", () => {
     </div>
 
   </form>`;
+
+  const submitBtn = document.getElementById("submit-btn");
+  const title = document.getElementById("title");
+  
+  submitBtn.addEventListener("click", () => {
+    if (title.value) {
+      projects.push(new Project(title.value));
+      updateProjectsList(projects);
+      formContainer.style.display = "none";
+      formContainer.innerHTML = ``;
+    }
+  });
 });
 
 addTaskBtn.addEventListener("click", () => {
