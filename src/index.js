@@ -40,7 +40,7 @@ addProjectBtn.addEventListener("click", () => {
     </div>
 
     <div>
-      <button id="submit-btn" type="submit">
+      <button id="submit-btn" type="button">
         Add Project
       </button>
     </div>
@@ -77,7 +77,7 @@ addTaskBtn.addEventListener("click", () => {
     </div>
 
     <div>
-      <button id="submit-btn" type="submit">
+      <button id="submit-btn" type="button">
         Add Task
       </button>
     </div>
