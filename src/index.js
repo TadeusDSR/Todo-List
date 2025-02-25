@@ -7,6 +7,7 @@ const addProjectBtn = document.getElementById("add-project-btn");
 const addTaskBtn = document.getElementById("add-task-btn");
 const formContainer = document.getElementById("form-container");
 const projectsList = document.getElementById("projects");
+const tasksList = document.getElementById("tasks");
 
 let projects = [];
 
@@ -16,6 +17,15 @@ function updateProjectsList(array) {
     const para = document.createElement("p");
     para.textContent = project.name;
     projectsList.appendChild(para);
+  }
+}
+
+function updateTaskList(array, projectIndex) {
+  tasksList.innerHTML = ``;
+  for (let task of array[projectIndex].tasks) {
+    const para = document.createElement("p");
+    para.textContent = task.title;
+    tasksList.appendChild(para);
   }
 }
 

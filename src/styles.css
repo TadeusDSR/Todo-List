@@ -12,6 +12,7 @@ button {
 }
 
 body {
+    display: flex;
     width: 100vw;
     height: 100vh;
     padding: 0;
@@ -35,7 +36,6 @@ body {
     overflow:auto;
     scrollbar-color: rgb(168, 216, 196) var(--light-gray);
     scrollbar-width: thin;
-    padding-right: 0.5rem;
 }
 
 #add-btn {
