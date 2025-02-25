@@ -9,6 +9,7 @@ const formContainer = document.getElementById("form-container");
 const projectsList = document.getElementById("projects");
 
 function updateProjectsList(array) {
+  projectsList.innerHTML = ``;
   for (let project of array) {
     const para = document.createElement("p");
     para.textContent = project.name;
