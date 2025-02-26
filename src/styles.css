@@ -145,9 +145,17 @@ h3 {
     padding: 3rem;
 }
 
-#tasks > div  {
-    cursor: pointer;
+#tasks > div {
     width: fit-content;
+}
+
+#tasks > div div {
+    display: flex;
+}
+
+#tasks input {
+    width: 1em;
+    margin-right: 1rem;
 }
 
 .task-date {

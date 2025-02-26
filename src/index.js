@@ -26,27 +26,48 @@ function updateProjectsList(array) {
 function updateTaskList(array, projectIndex) {
   tasksList.innerHTML = ``;
   for (let task of array[projectIndex].tasks) {
+    const taskContainer = document.createElement("div");
     const div = document.createElement("div");
+    const completeCheck = document.createElement("input");
     let titlePara = document.createElement("p");
-    titlePara.textContent = `- ${task.title}`;
+
+    completeCheck.setAttribute("type", "checkbox");
+
+    titlePara.textContent = `${task.title}`;
     titlePara.setAttribute("class", "desc-visible-0");
-    console.log(titlePara);
-    div.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+
+    div.appendChild(completeCheck);
     div.appendChild(titlePara);
-    div.addEventListener("click", () => {
+
+    taskContainer.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+    taskContainer.appendChild(div);
+    
+    taskContainer.addEventListener("click", () => {
       if (titlePara.getAttribute("class") === "desc-visible-0") {
         titlePara.setAttribute("class", "desc-visible-1");
 
-        div.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+        taskContainer.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+        div.innerHTML = ``;
+        div.append(completeCheck);
         div.appendChild(titlePara);
-        div.innerHTML += `<p class="task-date"> ${task.desc} </p>`;
+        taskContainer.append(div);
+        taskContainer.innerHTML += `<p class="task-date"> ${task.desc} </p>`;
       } else {
         titlePara.setAttribute("class", "desc-visible-0");
-        div.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+
+        taskContainer.innerHTML = `<p class="task-date"> due ${task.dueDate} </p>`;
+        div.innerHTML = ``;
+        div.append(completeCheck);
         div.appendChild(titlePara);
+        taskContainer.append(div);
       }
     });
-    tasksList.appendChild(div);
+
+    completeCheck.addEventListener("click", () => {
+      task.setComplete(completeCheck.checked);
+    });
+
+    tasksList.appendChild(taskContainer);
   }
 }
 
