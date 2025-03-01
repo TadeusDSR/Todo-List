@@ -29,7 +29,7 @@ function updateTaskList(array, projectIndex) {
     const taskContainer = document.createElement("div");
     const div = document.createElement("div");
     const completeCheck = document.createElement("input");
-    let titlePara = document.createElement("p");
+    const titlePara = document.createElement("p");
 
     completeCheck.setAttribute("type", "checkbox");
 
