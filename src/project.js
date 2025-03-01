@@ -8,7 +8,7 @@ export default class Project {
     this.tasks.push(new Task(title, desc, dueDate, priority, complete));
   }
 
-  deleteTask(indexOfTask) {
+  removeTask(indexOfTask) {
     this.tasks.splice(indexOfTask, 1);
   }
 }

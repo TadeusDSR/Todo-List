@@ -124,7 +124,7 @@ form > div:last-child {
     padding-top: 2rem;
 }
 
-#submit-btn {
+form button {
     padding: 1rem 2rem;
     border: 1px solid rgb(166, 206, 184);
     border-radius: 20px;
@@ -132,8 +132,17 @@ form > div:last-child {
     font-size: 2rem;
 }
 
-#submit-btn:active {
-    background-color: rgb(176, 218, 195);
+form button:active {
+    background-color: rgb(166, 206, 184);;
+}
+
+#remove-btn {
+    border: 1px solid rgb(206, 166, 186);
+    background-color: rgb(230, 186, 193);
+}
+
+#remove-btn:active {
+    background-color: rgb(207, 166, 173);
 }
 
 h3 {
@@ -154,8 +163,14 @@ h3 {
 }
 
 #tasks input {
+    cursor: pointer;
     width: 1em;
     margin-right: 1rem;
+}
+
+#tasks svg {
+    cursor: pointer;
+    margin-left: 1rem;
 }
 
 .task-date {
