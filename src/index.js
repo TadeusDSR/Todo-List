@@ -12,6 +12,18 @@ const tasksList = document.getElementById("tasks");
 let projects = [];
 let currentProject = 0;
 
+if (JSON.parse(localStorage.getItem("projects"))) {
+  JSON.parse(localStorage.getItem("projects")).forEach(pElement => {
+    let project = new Project(pElement.name);
+    pElement.tasks.forEach(tElement => {
+      project.createTask(tElement.title, tElement.desc, tElement.dueDate, tElement.priority, tElement.complete);
+    });
+    projects.push(project);
+  });
+
+  updateProjectsList(projects);
+}
+
 function updateProjectsList(array) {
   projectsList.innerHTML = ``;
   for (let i = 0; i < array.length; i++) {
@@ -136,6 +148,9 @@ function updateTaskList(array, projectIndex) {
           updateTaskList(projects, projectName.options.selectedIndex);
           formContainer.style.display = "none";
           formContainer.innerHTML = ``;
+
+          localStorage.setItem("projects", JSON.stringify(projects));
+          console.log(JSON.parse(localStorage.getItem("projects")));
         }
       });
 
@@ -144,11 +159,17 @@ function updateTaskList(array, projectIndex) {
         updateTaskList(projects, projectName.options.selectedIndex);
         formContainer.style.display = "none";
         formContainer.innerHTML = ``;
+
+        localStorage.setItem("projects", JSON.stringify(projects));
+        console.log(JSON.parse(localStorage.getItem("projects")));
       });
     });
 
     completeCheck.addEventListener("click", () => {
       task.setComplete(completeCheck.checked);
+
+      localStorage.setItem("projects", JSON.stringify(projects));
+      console.log(JSON.parse(localStorage.getItem("projects")));
     });
 
     tasksList.appendChild(taskContainer);
@@ -195,6 +216,9 @@ addProjectBtn.addEventListener("click", () => {
       updateProjectsList(projects);
       formContainer.style.display = "none";
       formContainer.innerHTML = ``;
+
+      localStorage.setItem("projects", JSON.stringify(projects));
+      console.log(JSON.parse(localStorage.getItem("projects")));
     }
   });
 });
@@ -257,6 +281,9 @@ addTaskBtn.addEventListener("click", () => {
       updateTaskList(projects, projectName.options.selectedIndex);
       formContainer.style.display = "none";
       formContainer.innerHTML = ``;
+
+      localStorage.setItem("projects", JSON.stringify(projects));
+      console.log(JSON.parse(localStorage.getItem("projects")));
     }
   });
 });
