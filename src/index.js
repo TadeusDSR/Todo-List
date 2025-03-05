@@ -10,6 +10,7 @@ const projectsList = document.getElementById("projects");
 const tasksList = document.getElementById("tasks");
 
 let projects = [];
+let currentProject = 0;
 
 function updateProjectsList(array) {
   projectsList.innerHTML = ``;
@@ -24,6 +25,7 @@ function updateProjectsList(array) {
 }
 
 function updateTaskList(array, projectIndex) {
+  currentProject = projectIndex;
   tasksList.innerHTML = ``;
   let i = 0
   for (let task of array[projectIndex].tasks) {
@@ -138,7 +140,7 @@ function updateTaskList(array, projectIndex) {
       });
 
       removeBtn.addEventListener("click", () => {
-        projects[projectName.options.selectedIndex].removeTask(taskContainer.getAttribute("id").split("-")[2]);
+        projects[currentProject].removeTask(taskContainer.getAttribute("id").split("-")[2]);
         updateTaskList(projects, projectName.options.selectedIndex);
         formContainer.style.display = "none";
         formContainer.innerHTML = ``;
