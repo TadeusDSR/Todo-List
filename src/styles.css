@@ -177,3 +177,12 @@ h3 {
     margin: 0;
     font-size: small;
 }
+
+.task-priority-high {
+    font-weight: bold;
+    color: rgb(211, 37, 37);
+}
+
+.task-priority-low {
+    color: gray;
+}
