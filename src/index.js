@@ -150,7 +150,6 @@ function updateTaskList(array, projectIndex) {
           formContainer.innerHTML = ``;
 
           localStorage.setItem("projects", JSON.stringify(projects));
-          console.log(JSON.parse(localStorage.getItem("projects")));
         }
       });
 
@@ -161,7 +160,6 @@ function updateTaskList(array, projectIndex) {
         formContainer.innerHTML = ``;
 
         localStorage.setItem("projects", JSON.stringify(projects));
-        console.log(JSON.parse(localStorage.getItem("projects")));
       });
     });
 
@@ -169,7 +167,6 @@ function updateTaskList(array, projectIndex) {
       task.setComplete(completeCheck.checked);
 
       localStorage.setItem("projects", JSON.stringify(projects));
-      console.log(JSON.parse(localStorage.getItem("projects")));
     });
 
     tasksList.appendChild(taskContainer);
@@ -218,7 +215,6 @@ addProjectBtn.addEventListener("click", () => {
       formContainer.innerHTML = ``;
 
       localStorage.setItem("projects", JSON.stringify(projects));
-      console.log(JSON.parse(localStorage.getItem("projects")));
     }
   });
 });
@@ -283,7 +279,6 @@ addTaskBtn.addEventListener("click", () => {
       formContainer.innerHTML = ``;
 
       localStorage.setItem("projects", JSON.stringify(projects));
-      console.log(JSON.parse(localStorage.getItem("projects")));
     }
   });
 });
