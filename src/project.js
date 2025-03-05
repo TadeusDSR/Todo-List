@@ -4,7 +4,7 @@ export default class Project {
     this.tasks = [];
   }
 
-  newTask(title, desc, dueDate, priority, complete) {
+  createTask(title, desc, dueDate, priority, complete) {
     this.tasks.push(new Task(title, desc, dueDate, priority, complete));
   }
 

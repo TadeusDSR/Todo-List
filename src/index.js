@@ -132,7 +132,7 @@ function updateTaskList(array, projectIndex) {
       editBtn.addEventListener("click", () => {
         if (title.value && desc.value && dueDate.value && priority.value) {
           projects[projectName.options.selectedIndex].removeTask(taskContainer.getAttribute("id").split("-")[2]);
-          projects[projectName.options.selectedIndex].newTask(title.value, desc.value, dueDate.value, priority.value);
+          projects[projectName.options.selectedIndex].createTask(title.value, desc.value, dueDate.value, priority.value);
           updateTaskList(projects, projectName.options.selectedIndex);
           formContainer.style.display = "none";
           formContainer.innerHTML = ``;
@@ -253,7 +253,7 @@ addTaskBtn.addEventListener("click", () => {
 
   submitBtn.addEventListener("click", () => {
     if (title.value && desc.value && dueDate.value && priority.value) {
-      projects[projectName.options.selectedIndex].newTask(title.value, desc.value, dueDate.value, priority.value);
+      projects[projectName.options.selectedIndex].createTask(title.value, desc.value, dueDate.value, priority.value);
       updateTaskList(projects, projectName.options.selectedIndex);
       formContainer.style.display = "none";
       formContainer.innerHTML = ``;
